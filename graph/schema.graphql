@@ -1,0 +1,18 @@
+scalar DateTime
+
+type Query {
+  users(first: Int, after: String): UserConnection!
+  user(id: ID!): User
+}
+
+type Mutation {
+  createUser(input: CreateUser!): User!
+  deleteUser(id: ID!): Boolean!
+}
+
+type PageInfo {
+  hasNextPage: Boolean!
+  hasPreviousPage: Boolean!
+  startCursor: String
+  endCursor: String
+}
