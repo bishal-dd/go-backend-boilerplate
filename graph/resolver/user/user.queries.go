@@ -43,14 +43,13 @@ func (r *UserResolver) Users(ctx context.Context, first *int, after *string) (*m
             return nil, err
         }
     }
-   
     
-    edges, end := Edges(offset, limit, users)
-    pageInfo := PageInfo(edges, totalUsers, end, offset )
+    connection := paginationUtil.CreateConnection(users, totalUsers, offset)
+
     return &model.UserConnection{
-        Edges:      edges,
-        PageInfo:   pageInfo,
-        TotalCount: int(totalUsers),
+        Edges: convertEdges(connection.Edges),
+        PageInfo: (*model.PageInfo)(connection.PageInfo),
+        TotalCount: connection.TotalCount,
     }, nil
 }
 

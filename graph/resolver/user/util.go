@@ -1,43 +1,18 @@
 package user
 
 import (
-	"encoding/base64"
-	"strconv"
-
 	"github.com/bisal-dd/go-backend-boilerplate/graph/model"
+	"github.com/bisal-dd/go-backend-boilerplate/helper/paginationUtil"
 )
 
-func Edges(offset int, limit int, values []*model.User,) ([]*model.UserEdge, int) {
-	end := offset + limit
-	if end > len(values) {
-		end = len(values)
-	}
-	// Safely create edges
-	edges := make([]*model.UserEdge, end-offset)
-	for i := offset; i < end; i++ {
-		cursor := "cursor" + strconv.Itoa(i)
-		encodedCursor := base64.StdEncoding.EncodeToString([]byte(cursor))
-		edges[i-offset] = &model.UserEdge{
-			Cursor: encodedCursor,
-			Node:   values[i],
-		}
-	}
 
-	return edges, end
-}
-
-func PageInfo (edges []*model.UserEdge, totalUsers int64, end int, offset int) *model.PageInfo {
-    var startCursor, endCursor *string
-    if len(edges) > 0 {
-        startCursor = &edges[0].Cursor
-        endCursor = &edges[len(edges)-1].Cursor
+func convertEdges(edges []*paginationUtil.Edge[*model.User]) []*model.UserEdge {
+    locationEdges := make([]*model.UserEdge, len(edges))
+    for i, edge := range edges {
+        locationEdges[i] = &model.UserEdge{
+            Cursor: edge.Cursor,
+            Node:   edge.Node,
+        }
     }
-
-    pageInfo := &model.PageInfo{
-        HasNextPage:     int64(end) < totalUsers,
-        HasPreviousPage: offset > 0,
-        StartCursor:     startCursor,
-        EndCursor:       endCursor,
-    }
-	return pageInfo
+    return locationEdges
 }
