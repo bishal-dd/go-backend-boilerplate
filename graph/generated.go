@@ -372,7 +372,7 @@ func (ec *executionContext) introspectType(name string) (*introspection.Type, er
 	return introspection.WrapTypeFromDef(ec.Schema(), ec.Schema().Types[name]), nil
 }
 
-//go:embed "resolver/user/user.graphql" "schema.graphql"
+//go:embed "resolver/user/schema.graphql" "schema.graphql"
 var sourcesFS embed.FS
 
 func sourceData(filename string) string {
@@ -384,7 +384,7 @@ func sourceData(filename string) string {
 }
 
 var sources = []*ast.Source{
-	{Name: "resolver/user/user.graphql", Input: sourceData("resolver/user/user.graphql"), BuiltIn: false},
+	{Name: "resolver/user/schema.graphql", Input: sourceData("resolver/user/schema.graphql"), BuiltIn: false},
 	{Name: "schema.graphql", Input: sourceData("schema.graphql"), BuiltIn: false},
 }
 var parsedSchema = gqlparser.MustLoadSchema(sources...)
@@ -399,7 +399,7 @@ func (ec *executionContext) field_Mutation_createUser_args(ctx context.Context, 
 	var arg0 model.CreateUser
 	if tmp, ok := rawArgs["input"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("input"))
-		arg0, err = ec.unmarshalNCreateUser2githubᚗcomᚋYangkoo23ᚋyangkooᚑbackendᚋgraphᚋmodelᚐCreateUser(ctx, tmp)
+		arg0, err = ec.unmarshalNCreateUser2githubᚗcomᚋbisalᚑddᚋgoᚑbackendᚑboilerplateᚋgraphᚋmodelᚐCreateUser(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -543,7 +543,7 @@ func (ec *executionContext) _Mutation_createUser(ctx context.Context, field grap
 	}
 	res := resTmp.(*model.User)
 	fc.Result = res
-	return ec.marshalNUser2ᚖgithubᚗcomᚋYangkoo23ᚋyangkooᚑbackendᚋgraphᚋmodelᚐUser(ctx, field.Selections, res)
+	return ec.marshalNUser2ᚖgithubᚗcomᚋbisalᚑddᚋgoᚑbackendᚑboilerplateᚋgraphᚋmodelᚐUser(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) fieldContext_Mutation_createUser(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
@@ -837,7 +837,7 @@ func (ec *executionContext) _Query_users(ctx context.Context, field graphql.Coll
 	}
 	res := resTmp.(*model.UserConnection)
 	fc.Result = res
-	return ec.marshalNUserConnection2ᚖgithubᚗcomᚋYangkoo23ᚋyangkooᚑbackendᚋgraphᚋmodelᚐUserConnection(ctx, field.Selections, res)
+	return ec.marshalNUserConnection2ᚖgithubᚗcomᚋbisalᚑddᚋgoᚑbackendᚑboilerplateᚋgraphᚋmodelᚐUserConnection(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) fieldContext_Query_users(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
@@ -897,7 +897,7 @@ func (ec *executionContext) _Query_user(ctx context.Context, field graphql.Colle
 	}
 	res := resTmp.(*model.User)
 	fc.Result = res
-	return ec.marshalOUser2ᚖgithubᚗcomᚋYangkoo23ᚋyangkooᚑbackendᚋgraphᚋmodelᚐUser(ctx, field.Selections, res)
+	return ec.marshalOUser2ᚖgithubᚗcomᚋbisalᚑddᚋgoᚑbackendᚑboilerplateᚋgraphᚋmodelᚐUser(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) fieldContext_Query_user(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
@@ -1353,7 +1353,7 @@ func (ec *executionContext) _UserConnection_edges(ctx context.Context, field gra
 	}
 	res := resTmp.([]*model.UserEdge)
 	fc.Result = res
-	return ec.marshalNUserEdge2ᚕᚖgithubᚗcomᚋYangkoo23ᚋyangkooᚑbackendᚋgraphᚋmodelᚐUserEdgeᚄ(ctx, field.Selections, res)
+	return ec.marshalNUserEdge2ᚕᚖgithubᚗcomᚋbisalᚑddᚋgoᚑbackendᚑboilerplateᚋgraphᚋmodelᚐUserEdgeᚄ(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) fieldContext_UserConnection_edges(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
@@ -1403,7 +1403,7 @@ func (ec *executionContext) _UserConnection_pageInfo(ctx context.Context, field 
 	}
 	res := resTmp.(*model.PageInfo)
 	fc.Result = res
-	return ec.marshalNPageInfo2ᚖgithubᚗcomᚋYangkoo23ᚋyangkooᚑbackendᚋgraphᚋmodelᚐPageInfo(ctx, field.Selections, res)
+	return ec.marshalNPageInfo2ᚖgithubᚗcomᚋbisalᚑddᚋgoᚑbackendᚑboilerplateᚋgraphᚋmodelᚐPageInfo(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) fieldContext_UserConnection_pageInfo(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
@@ -1545,7 +1545,7 @@ func (ec *executionContext) _UserEdge_node(ctx context.Context, field graphql.Co
 	}
 	res := resTmp.(*model.User)
 	fc.Result = res
-	return ec.marshalNUser2ᚖgithubᚗcomᚋYangkoo23ᚋyangkooᚑbackendᚋgraphᚋmodelᚐUser(ctx, field.Selections, res)
+	return ec.marshalNUser2ᚖgithubᚗcomᚋbisalᚑddᚋgoᚑbackendᚑboilerplateᚋgraphᚋmodelᚐUser(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) fieldContext_UserEdge_node(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
@@ -4070,7 +4070,7 @@ func (ec *executionContext) marshalNBoolean2bool(ctx context.Context, sel ast.Se
 	return res
 }
 
-func (ec *executionContext) unmarshalNCreateUser2githubᚗcomᚋYangkoo23ᚋyangkooᚑbackendᚋgraphᚋmodelᚐCreateUser(ctx context.Context, v interface{}) (model.CreateUser, error) {
+func (ec *executionContext) unmarshalNCreateUser2githubᚗcomᚋbisalᚑddᚋgoᚑbackendᚑboilerplateᚋgraphᚋmodelᚐCreateUser(ctx context.Context, v interface{}) (model.CreateUser, error) {
 	res, err := ec.unmarshalInputCreateUser(ctx, v)
 	return res, graphql.ErrorOnPath(ctx, err)
 }
@@ -4120,7 +4120,7 @@ func (ec *executionContext) marshalNInt2int(ctx context.Context, sel ast.Selecti
 	return res
 }
 
-func (ec *executionContext) marshalNPageInfo2ᚖgithubᚗcomᚋYangkoo23ᚋyangkooᚑbackendᚋgraphᚋmodelᚐPageInfo(ctx context.Context, sel ast.SelectionSet, v *model.PageInfo) graphql.Marshaler {
+func (ec *executionContext) marshalNPageInfo2ᚖgithubᚗcomᚋbisalᚑddᚋgoᚑbackendᚑboilerplateᚋgraphᚋmodelᚐPageInfo(ctx context.Context, sel ast.SelectionSet, v *model.PageInfo) graphql.Marshaler {
 	if v == nil {
 		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
 			ec.Errorf(ctx, "the requested element is null which the schema does not allow")
@@ -4145,11 +4145,11 @@ func (ec *executionContext) marshalNString2string(ctx context.Context, sel ast.S
 	return res
 }
 
-func (ec *executionContext) marshalNUser2githubᚗcomᚋYangkoo23ᚋyangkooᚑbackendᚋgraphᚋmodelᚐUser(ctx context.Context, sel ast.SelectionSet, v model.User) graphql.Marshaler {
+func (ec *executionContext) marshalNUser2githubᚗcomᚋbisalᚑddᚋgoᚑbackendᚑboilerplateᚋgraphᚋmodelᚐUser(ctx context.Context, sel ast.SelectionSet, v model.User) graphql.Marshaler {
 	return ec._User(ctx, sel, &v)
 }
 
-func (ec *executionContext) marshalNUser2ᚖgithubᚗcomᚋYangkoo23ᚋyangkooᚑbackendᚋgraphᚋmodelᚐUser(ctx context.Context, sel ast.SelectionSet, v *model.User) graphql.Marshaler {
+func (ec *executionContext) marshalNUser2ᚖgithubᚗcomᚋbisalᚑddᚋgoᚑbackendᚑboilerplateᚋgraphᚋmodelᚐUser(ctx context.Context, sel ast.SelectionSet, v *model.User) graphql.Marshaler {
 	if v == nil {
 		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
 			ec.Errorf(ctx, "the requested element is null which the schema does not allow")
@@ -4159,11 +4159,11 @@ func (ec *executionContext) marshalNUser2ᚖgithubᚗcomᚋYangkoo23ᚋyangkoo�
 	return ec._User(ctx, sel, v)
 }
 
-func (ec *executionContext) marshalNUserConnection2githubᚗcomᚋYangkoo23ᚋyangkooᚑbackendᚋgraphᚋmodelᚐUserConnection(ctx context.Context, sel ast.SelectionSet, v model.UserConnection) graphql.Marshaler {
+func (ec *executionContext) marshalNUserConnection2githubᚗcomᚋbisalᚑddᚋgoᚑbackendᚑboilerplateᚋgraphᚋmodelᚐUserConnection(ctx context.Context, sel ast.SelectionSet, v model.UserConnection) graphql.Marshaler {
 	return ec._UserConnection(ctx, sel, &v)
 }
 
-func (ec *executionContext) marshalNUserConnection2ᚖgithubᚗcomᚋYangkoo23ᚋyangkooᚑbackendᚋgraphᚋmodelᚐUserConnection(ctx context.Context, sel ast.SelectionSet, v *model.UserConnection) graphql.Marshaler {
+func (ec *executionContext) marshalNUserConnection2ᚖgithubᚗcomᚋbisalᚑddᚋgoᚑbackendᚑboilerplateᚋgraphᚋmodelᚐUserConnection(ctx context.Context, sel ast.SelectionSet, v *model.UserConnection) graphql.Marshaler {
 	if v == nil {
 		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
 			ec.Errorf(ctx, "the requested element is null which the schema does not allow")
@@ -4173,7 +4173,7 @@ func (ec *executionContext) marshalNUserConnection2ᚖgithubᚗcomᚋYangkoo23�
 	return ec._UserConnection(ctx, sel, v)
 }
 
-func (ec *executionContext) marshalNUserEdge2ᚕᚖgithubᚗcomᚋYangkoo23ᚋyangkooᚑbackendᚋgraphᚋmodelᚐUserEdgeᚄ(ctx context.Context, sel ast.SelectionSet, v []*model.UserEdge) graphql.Marshaler {
+func (ec *executionContext) marshalNUserEdge2ᚕᚖgithubᚗcomᚋbisalᚑddᚋgoᚑbackendᚑboilerplateᚋgraphᚋmodelᚐUserEdgeᚄ(ctx context.Context, sel ast.SelectionSet, v []*model.UserEdge) graphql.Marshaler {
 	ret := make(graphql.Array, len(v))
 	var wg sync.WaitGroup
 	isLen1 := len(v) == 1
@@ -4197,7 +4197,7 @@ func (ec *executionContext) marshalNUserEdge2ᚕᚖgithubᚗcomᚋYangkoo23ᚋya
 			if !isLen1 {
 				defer wg.Done()
 			}
-			ret[i] = ec.marshalNUserEdge2ᚖgithubᚗcomᚋYangkoo23ᚋyangkooᚑbackendᚋgraphᚋmodelᚐUserEdge(ctx, sel, v[i])
+			ret[i] = ec.marshalNUserEdge2ᚖgithubᚗcomᚋbisalᚑddᚋgoᚑbackendᚑboilerplateᚋgraphᚋmodelᚐUserEdge(ctx, sel, v[i])
 		}
 		if isLen1 {
 			f(i)
@@ -4217,7 +4217,7 @@ func (ec *executionContext) marshalNUserEdge2ᚕᚖgithubᚗcomᚋYangkoo23ᚋya
 	return ret
 }
 
-func (ec *executionContext) marshalNUserEdge2ᚖgithubᚗcomᚋYangkoo23ᚋyangkooᚑbackendᚋgraphᚋmodelᚐUserEdge(ctx context.Context, sel ast.SelectionSet, v *model.UserEdge) graphql.Marshaler {
+func (ec *executionContext) marshalNUserEdge2ᚖgithubᚗcomᚋbisalᚑddᚋgoᚑbackendᚑboilerplateᚋgraphᚋmodelᚐUserEdge(ctx context.Context, sel ast.SelectionSet, v *model.UserEdge) graphql.Marshaler {
 	if v == nil {
 		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
 			ec.Errorf(ctx, "the requested element is null which the schema does not allow")
@@ -4554,7 +4554,7 @@ func (ec *executionContext) marshalOString2ᚖstring(ctx context.Context, sel as
 	return res
 }
 
-func (ec *executionContext) marshalOUser2ᚖgithubᚗcomᚋYangkoo23ᚋyangkooᚑbackendᚋgraphᚋmodelᚐUser(ctx context.Context, sel ast.SelectionSet, v *model.User) graphql.Marshaler {
+func (ec *executionContext) marshalOUser2ᚖgithubᚗcomᚋbisalᚑddᚋgoᚑbackendᚑboilerplateᚋgraphᚋmodelᚐUser(ctx context.Context, sel ast.SelectionSet, v *model.User) graphql.Marshaler {
 	if v == nil {
 		return graphql.Null
 	}

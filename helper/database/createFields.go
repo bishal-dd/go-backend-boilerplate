@@ -4,7 +4,7 @@ import (
 	"reflect"
 	"time"
 
-	"github.com/Yangkoo23/yangkoo-backend/helper/ids"
+	"github.com/bisal-dd/go-backend-boilerplate/helper/ids"
 )
 
 
